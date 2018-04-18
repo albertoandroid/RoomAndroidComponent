@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.androiddesdecero.roomudemy.ui.CourseActivity">
+
+    <EditText
+        android:id="@+id/courseActivityIdProfesor"
+        android:hint="idProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/courseActivityName"
+        android:hint="Nombre Curso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/courseActivityIdDuracion"
+        android:hint="Duracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/courseActivityBtSalvar"
+        android:hint="Salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/courseActivityBtLeerCursosPorProfesor"
+        android:hint="Leer Cursos por Profesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/courseActivityBtActualizarCursosPorId"
+        android:hint="Actualizar Curso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/courseActivityBtBorrarCursosPorId"
+        android:hint="Borrar Curso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

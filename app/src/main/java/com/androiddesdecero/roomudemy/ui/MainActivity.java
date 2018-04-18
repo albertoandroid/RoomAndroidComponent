@@ -11,7 +11,7 @@ import com.androiddesdecero.roomudemy.db.entity.Professor;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btProfesor;
+    private Button btProfesor, btCurso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ProfessorActivity.class));
+            }
+        });
+        btCurso = findViewById(R.id.mainAcitivityBtCurso);
+        btCurso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CourseActivity.class));
             }
         });
     }
