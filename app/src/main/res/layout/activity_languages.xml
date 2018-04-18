@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.androiddesdecero.roomudemy.ui.LanguagesActivity">
+
+    <EditText
+        android:id="@+id/languageActivityName"
+        android:hint="Nombre Curso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/languageActivityBtSalvar"
+        android:hint="Salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/languageActivityBtLeerCursosPorProfesor"
+        android:hint="Leer todos Lenguajes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/languageActivityBtActualizarCursosPorId"
+        android:hint="Actualizar Lenguaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/languageActivityBtBorrarCursosPorId"
+        android:hint="Borrar Lenguaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

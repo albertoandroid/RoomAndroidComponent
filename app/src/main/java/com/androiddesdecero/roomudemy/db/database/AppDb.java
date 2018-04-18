@@ -10,26 +10,30 @@ import android.support.annotation.NonNull;
 
 import com.androiddesdecero.roomudemy.constans.Constans;
 import com.androiddesdecero.roomudemy.db.dao.CourseDAO;
+import com.androiddesdecero.roomudemy.db.dao.LanguagesDAO;
 import com.androiddesdecero.roomudemy.db.dao.ProfessorDAO;
 import com.androiddesdecero.roomudemy.db.entity.Course;
+import com.androiddesdecero.roomudemy.db.entity.Languages;
 import com.androiddesdecero.roomudemy.db.entity.Professor;
 
 /**
  * Created by albertopalomarrobledo on 18/4/18.
  */
 
-@Database(entities = {Professor.class, Course.class}, version = 2)
+@Database(entities = {Professor.class, Course.class, Languages.class}, version = 3)
 public abstract class AppDb extends RoomDatabase {
 
     private static AppDb INSTANCE;
     public abstract ProfessorDAO professorDAO();
     public abstract CourseDAO courseDAO();
+    public abstract LanguagesDAO languagesDAO();
 
     public static AppDb getAppDb(Context context){
         if(INSTANCE == null){
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDb.class, Constans.NAME_DATABASE)
                     .allowMainThreadQueries()
                     .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_2_3)
                     .build();
         }
         return INSTANCE;
@@ -43,6 +47,13 @@ public abstract class AppDb extends RoomDatabase {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             database.execSQL("CREATE TABLE curso (id INTEGER PRIMARY KEY NOT NULL, name TEXT, duration TEXT, professorId INTEGER NOT NULL, foreign key (professorID) references professor(id) ON DELETE CASCADE)");
+        }
+    };
+
+    static final Migration MIGRATION_2_3 = new Migration(2,3) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE languages (id INTEGER PRIMARY KEY NOT NULL, name TEXT)");
         }
     };
 }
