@@ -5,29 +5,35 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.androiddesdecero.roomudemy.ui.MainActivity">
+    tools:context="com.androiddesdecero.roomudemy.ui.ProfessorLanguagesActivity">
 
-    <Button
-        android:text="Profesor"
-        android:id="@+id/mainAcitivityBtProfessor"
+    <EditText
+        android:hint="Profesor Id"
+        android:id="@+id/professorLanguageActivityEtProfesorId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="Lenguaje Id"
+        android:id="@+id/professorLanguageActivityEtLenguajeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="Cursos"
-        android:id="@+id/mainAcitivityBtCurso"
+        android:text="Salvar"
+        android:id="@+id/professorLanguageActivityBtSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="Lenguajes"
-        android:id="@+id/mainAcitivityBtLenguajes"
+        android:text="Leer Profesores"
+        android:id="@+id/professorLanguageActivityBtLeerProfesores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-        android:text="ProfesorLenguaje"
-        android:id="@+id/mainAcitivityBtProfessorLenguajes"
+        android:text="Leer Lenguajes"
+        android:id="@+id/professorLanguageActivityBtLeerLenguajes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

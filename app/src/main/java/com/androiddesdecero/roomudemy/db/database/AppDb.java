@@ -12,21 +12,24 @@ import com.androiddesdecero.roomudemy.constans.Constans;
 import com.androiddesdecero.roomudemy.db.dao.CourseDAO;
 import com.androiddesdecero.roomudemy.db.dao.LanguagesDAO;
 import com.androiddesdecero.roomudemy.db.dao.ProfessorDAO;
+import com.androiddesdecero.roomudemy.db.dao.ProfessorLanguageDAO;
 import com.androiddesdecero.roomudemy.db.entity.Course;
 import com.androiddesdecero.roomudemy.db.entity.Languages;
 import com.androiddesdecero.roomudemy.db.entity.Professor;
+import com.androiddesdecero.roomudemy.db.entity.ProfessorLanguage;
 
 /**
  * Created by albertopalomarrobledo on 18/4/18.
  */
 
-@Database(entities = {Professor.class, Course.class, Languages.class}, version = 3)
+@Database(entities = {Professor.class, Course.class, Languages.class, ProfessorLanguage.class}, version = 4)
 public abstract class AppDb extends RoomDatabase {
 
     private static AppDb INSTANCE;
     public abstract ProfessorDAO professorDAO();
     public abstract CourseDAO courseDAO();
     public abstract LanguagesDAO languagesDAO();
+    public abstract ProfessorLanguageDAO professorLanguageDAO();
 
     public static AppDb getAppDb(Context context){
         if(INSTANCE == null){
@@ -34,6 +37,7 @@ public abstract class AppDb extends RoomDatabase {
                     .allowMainThreadQueries()
                     .addMigrations(MIGRATION_1_2)
                     .addMigrations(MIGRATION_2_3)
+                    .addMigrations(MIGRATION_3_4)
                     .build();
         }
         return INSTANCE;
@@ -54,6 +58,13 @@ public abstract class AppDb extends RoomDatabase {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             database.execSQL("CREATE TABLE languages (id INTEGER PRIMARY KEY NOT NULL, name TEXT)");
+        }
+    };
+
+    static final Migration MIGRATION_3_4 = new Migration(3,4) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE professorlanguages (profesorId INTEGER NOT NULL, languajeId INTEGER NOT NULL, PRIMARY KEY (profesorId, languajeId) foreign key (profesorId) references professor(id),foreign key (languajeId) references languages(id))");
         }
     };
 }
